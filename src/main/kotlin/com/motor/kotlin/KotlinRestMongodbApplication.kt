@@ -8,6 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 @SpringBootApplication
 class KotlinRestMongodbApplication
 
-fun main(args: Array<String>) {
-    SpringApplication.run(KotlinRestMongodbApplication::class.java, *args)
-}
+    fun main(args: Array<String>) {
+        SpringApplication.run(KotlinRestMongodbApplication::class.java, *args)
+
+    }
+

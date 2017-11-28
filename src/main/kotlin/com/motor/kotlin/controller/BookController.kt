@@ -29,7 +29,7 @@ class BookController {
 
     @GetMapping("/select")
     fun getSelectBooks(): List<Book> = bookComponent!!
-            .findBooksByDateOfPublicationBeforeAndAuthorRegexAndTitleRegex(SimpleDateFormat("yyyy-MM-dd").parse("2002-01-01"),
+            .findBooksByDateOfPublicationBeforeAndAuthorRegexAndTitleRegex(SimpleDateFormat("yyyy-MM-dd").parse("2017-01-01")/*Date()*/,
                 """^[A-ZА-Я]{1}[a-zа-я]+\s[A-ZА-Я]{1}[a-zа-я]+\s[A-ZА-Я]{1}[a-zа-я]+$""",
                 "^.{1,50}$")
 

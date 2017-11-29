@@ -10,6 +10,5 @@ class KotlinRestMongodbApplication
 
     fun main(args: Array<String>) {
         SpringApplication.run(KotlinRestMongodbApplication::class.java, *args)
-
     }
 

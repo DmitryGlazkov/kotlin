@@ -28,10 +28,15 @@ class BookController {
     fun getAllBooks(): Iterable<Book> = bookComponent!!.findAll()
 
     @GetMapping("/select")
-    fun getSelectBooks(): List<Book> = bookComponent!!
-            .findBooksByDateOfPublicationBeforeAndAuthorRegexAndTitleRegex(SimpleDateFormat("yyyy-MM-dd").parse("2002-01-01"),
-                """^[A-ZА-Я]{1}[a-zа-я]+\s[A-ZА-Я]{1}[a-zа-я]+\s[A-ZА-Я]{1}[a-zа-я]+$""",
-                "^.{1,50}$")
+    fun getSelectBooks(): MutableList<Book> {
+        val list = bookComponent!!
+                .findBooksByDateOfPublicationBeforeAndAuthorRegexAndTitleRegex(SimpleDateFormat("yyyy-MM-dd").parse("1996-01-01")/*Date()*/,
+                        """^[A-ZА-Я]{1}[a-zа-я]+\s[A-ZА-Я]{1}[a-zа-я]+\s[A-ZА-Я]{1}[a-zа-я]+$""",
+                        "^.{1,40}$")
+
+        list.forEach { it -> println(it.author + " " + it.dateOfPublication) }
+       return list
+    }
 
     @GetMapping("/{title}")
     fun bookByTitle(@PathVariable(value = "title") title: String): ResponseEntity<Book> {

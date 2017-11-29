@@ -14,5 +14,5 @@ interface BookComponent : MyRepository<Book, String> {
 
     fun findBookByTitle(title: String): Book
 
-    fun findBooksByDateOfPublicationBeforeAndAuthorRegexAndTitleRegex(date: Date, regexAuthor: String, regexTitle: String): List<Book>
+    fun findBooksByDateOfPublicationBeforeAndAuthorRegexAndTitleRegex(date: Date, regexAuthor: String, regexTitle: String): MutableList<Book>
 }
